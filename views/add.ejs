@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="tk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Täze Post Goşmak</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="form-body">
+
+    <div class="form-card">
+        <h2>Täze Post Döretmek</h2>
+        <p class="form-subtitle">Pikirleriňizi we täzelikleriňizi paýlaşyň</p>
+
+        <form action="/add" method="POST" class="post-form">
+            <div class="form-group">
+                <input type="text" id="title" name="title" placeholder="Postuň adyny giriziň..." required>
+            </div>
+
+            <div class="form-group">
+                <textarea id="content" name="content"  placeholder="Bu ýere mazmunyny ýazyň..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <input type="date" id="date" name="date">
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Paýlaş</button>
+                <a href="/" class="btn btn-secondary">Yza gaýtmak</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

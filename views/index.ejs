@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Sahypasy</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- HEADER BÖLEGI -->
+        <header class="main-header">
+            <div>
+                <h1 class="subtitle">Pikirler, ýazgylar we täzelikler</h1>
+            </div>
+            <a href="/add" class="btn btn-primary">+ Täze Post Goş</a>
+        </header>
+
+        <hr class="divider">
+
+        <!-- POSTLAR BÖLEGI -->
+        <main class="posts-container">
+            <% if (posts.length === 0) { %>
+                <div class="empty-state">
+                    <p>Heniz hiç hili post ýok.</p>
+                    <a href="/add">Ilkinji postyňyzy paýlaşyň!</a>
+                </div>
+            <% } else { %>
+                <div class="posts-grid">
+                    <% posts.forEach((post) => { %>
+                        <article class="post-card">
+                            <div class="post-header">
+                                <h2 class="post-title"><%= post.title %></h2>
+                                <span class="post-date"><%= post.date %></span>
+                            </div>
+                            
+                            <p class="post-content"><%= post.content %></p>
+                            
+                            <div class="post-actions">
+                                <!-- Üýtget düwmesi (Safe Data Attribute Usuly) -->
+                               <a href="/edit/<%=post.id %>">Uytget</a>
+                                <!-- Pozmak formasy -->
+                                <form action="/delete/<%= post.id %>" method="POST" style="display:inline;">
+                                    <button type="submit" class="btn-link delete-btn" onclick="return confirm('Siz hakykatdan hem bu posty pozmak isleýärsiňizmi?')">
+                                        🗑️ poz
+                                    </button>
+                                </form>
+                            </div>
+                        </article>
+                    <% }); %>
+                </div>
+            <% } %>
+        </main>
+    </div>
+</body>
+</html>
